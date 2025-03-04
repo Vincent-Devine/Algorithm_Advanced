@@ -22,7 +22,7 @@ git clone git@github.com:Vincent-Devine/Algorithm_Advenced.git
 - Versionning [Github](https://github.com/Vincent-Devine/Algorithm_Advenced)
 
 ## Library Used
-- Logger: [OMLogger](https://github.com/Vincent-Devine/OMLogger) *v1.1*
+- Logger: [OMLogger](https://github.com/Vincent-Devine/OMLogger/tree/v1.1) *v1.1*
 
 ## Credit
 Author: **Vincent DEVINE**<br>
