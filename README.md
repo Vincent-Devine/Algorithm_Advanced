@@ -1,5 +1,5 @@
-# Advenced Algorithm
-Exercice that aims to learn advenced algorithm. Exercice made during 4th year of Game Programming at ISART Digital<br>
+# Advanced Algorithm
+Exercice that aims to learn advanced algorithm. Exercice made during 4th year of Game Programming at ISART Digital<br>
 
 ## Table of content
 - [Getting  Started](#getting-started)
