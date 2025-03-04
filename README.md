@@ -19,7 +19,7 @@ git clone git@github.com:Vincent-Devine/Algorithm_Advenced.git
 ## Technology
 - Language: C++ *20*
 - Editor: [Visual Studio 2022](https://visualstudio.microsoft.com/fr/vs/)
-- Versionning [Github](https://github.com/Vincent-Devine/Algorithm_Advenced)
+- Versionning [Github](https://github.com/Vincent-Devine/Algorithm_Advanced)
 
 ## Library Used
 - Logger: [OMLogger](https://github.com/Vincent-Devine/OMLogger/tree/v1.1) *v1.1*
