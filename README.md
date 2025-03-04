@@ -9,7 +9,7 @@ Exercice that aims to learn advanced algorithm. Exercice made during 4th year of
 ## Getting Started
 ### Clone
 ```bash
-git clone git@github.com:Vincent-Devine/Algorithm_Advenced.git
+git clone git@github.com:Vincent-Devine/Algorithm_Advanced.git
 ```
 
 ### Start the project
