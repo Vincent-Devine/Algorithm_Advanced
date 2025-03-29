@@ -270,7 +270,7 @@ void RBT::FixDelete(Node* node)
 					if (temp->_left)
 						temp->_left->_color = Color::BLACK;
 
-					temp->_left->_color = Color::RED;
+					temp->_color = Color::RED;
 					RotateRight(temp);
 					temp = node->_parent->_right;
 				}
