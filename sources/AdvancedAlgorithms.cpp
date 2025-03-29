@@ -4,6 +4,7 @@
 #include "OMLogger/Logger.hpp"
 #include "Utils/Utils.hpp"
 #include "Exercice/Exercice1.hpp"
+#include "Tree/TreeExercice.hpp"
 
 int main()
 {
@@ -40,4 +41,6 @@ int main()
 	dataString = "abcabcbb";
 	resultInt = Exercice1::LengthOfLongestSubstring(dataString);
 	Utils::CheckResult("Exercice1: LengthOfLongestSubstring", 3, resultInt);
+
+	Tree::TreeExercice();
 }
