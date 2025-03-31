@@ -4,7 +4,7 @@
 
 namespace Tree
 {
-	class RBT
+	class BST
 	{
 		// Attributes
 	private:
@@ -12,7 +12,7 @@ namespace Tree
 
 		// Methods
 	public:
-		RBT();
+		BST();
 
 		void InsertNode(int data);
 		void SearchNode(int data);
@@ -20,13 +20,9 @@ namespace Tree
 		void PrintInorder();
 
 	private:
-		void RotateLeft(Node* ptr);
-		void RotateRight(Node* ptr);
-		void FixInsert(Node* NewNode);
 		Node* Search(Node* root, int data);
 		void DeleteNode(Node* deletedNode);
-		void Transplant(Node* u, Node* v);
-		void FixDelete(Node* node);
+		void Transplante(Node* u, Node* v);
 		Node* MinNode(Node* node);
 		void Inorder(Node* root);
 	};
