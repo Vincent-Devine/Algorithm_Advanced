@@ -18,6 +18,12 @@ namespace Tree
 		void SearchNode(int data);
 		void DeleteNode(int data);
 		void PrintInorder();
+		bool IsBST(Node* root);
+		void CheckIsBST();
+		Node* BSTToDLL(); // DLL (Double Linked List)
+		void PrintDLL(Node* root);
+
+		Node* GetRoot() { return _root; }
 
 	private:
 		Node* Search(Node* root, int data);
@@ -25,5 +31,6 @@ namespace Tree
 		void Transplante(Node* u, Node* v);
 		Node* MinNode(Node* node);
 		void Inorder(Node* root);
+		void ConvertBSTToDLL(Node* root, Node*& head, Node* tail);
 	};
 }

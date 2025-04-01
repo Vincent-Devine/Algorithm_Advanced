@@ -8,10 +8,6 @@ namespace Tree
 {
 	void TreeExercice()
 	{
-		LOG_DEBUG("----------------------------------");
-		LOG_DEBUG("------ RBT (Red Black Tree) ------");
-		LOG_DEBUG("----------------------------------");
-
 		auto start = std::chrono::high_resolution_clock::now();
 
 		RBT RBTTree;
@@ -43,10 +39,6 @@ namespace Tree
 		auto end = std::chrono::high_resolution_clock::now();
 		std::chrono::duration<double> elapsedRBT = end - start;
 
-		LOG_DEBUG("----------------------------------");
-		LOG_DEBUG("---- BST (Binary Search Tree) ----");
-		LOG_DEBUG("----------------------------------");
-
 		start = std::chrono::high_resolution_clock::now();
 
 		BST BSTTree;
@@ -77,6 +69,10 @@ namespace Tree
 
 		end = std::chrono::high_resolution_clock::now();
 		std::chrono::duration<double> elapsedBST = end - start;
+
+		BSTTree.CheckIsBST();
+		Node* DLLRoot = BSTTree.BSTToDLL();
+		BSTTree.PrintDLL(DLLRoot);
 
 		LOG_INFO("Execution time BST (Binary Search Tree): " + std::to_string(elapsedBST.count()) + " seconds");
 		LOG_INFO("Execution time RBT (Red Black Tree): " + std::to_string(elapsedRBT.count()) + " seconds");

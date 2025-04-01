@@ -74,6 +74,55 @@ void BST::PrintInorder()
 	Inorder(_root);
 }
 
+bool BST::IsBST(Node* root)
+{
+	if (root->_left)
+	{
+		if (root->_left->_data < root->_data)
+			return IsBST(root->_left);
+		else
+			return false;
+	}
+
+	if (root->_right)
+	{
+		if (root->_right->_data > root->_data)
+			return IsBST(root->_right);
+		else
+			return false;
+	}
+
+	return true;
+}
+
+void BST::CheckIsBST()
+{
+	if (IsBST(_root))
+	{
+		LOG_VALIDATION("BST Tree is good");
+	}
+	else
+	{
+		LOG_WARNING("BST Tree is not a good BST");
+	}
+}
+
+Node* BST::BSTToDLL()
+{
+	Node* head = nullptr;
+	ConvertBSTToDLL(_root, head, nullptr);
+	return head;
+}
+
+void BST::PrintDLL(Node* root)
+{
+	if (!root)
+		return;
+
+	LOG_DEBUG(std::to_string(root->_data));
+	PrintDLL(root->_right);
+}
+
 Node* BST::Search(Node* root, int data)
 {
 	if (!root || root->_data == data)
@@ -143,4 +192,26 @@ void BST::Inorder(Node* root)
 	Inorder(root->_left);
 	LOG_DEBUG(std::to_string(root->_data));
 	Inorder(root->_right);
+}
+
+void BST::ConvertBSTToDLL(Node* root, Node*& head, Node* tail)
+{
+	if (!root)
+		return;
+
+	ConvertBSTToDLL(root->_left, head, tail);
+
+	if (!head)
+	{
+		head = root;
+	}
+	else
+	{
+		tail->_right = root;
+		root->_left = tail;
+	}
+
+	tail = root;
+
+	ConvertBSTToDLL(root->_right, head, tail);
 }
