@@ -1,4 +1,4 @@
-#include "Tree/Exercice.hpp"
+#include "Tree/Tree.hpp"
 
 #include <chrono>
 #include <OMLogger/Logger.hpp>

@@ -130,19 +130,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="sources\AdvancedAlgorithms.cpp" />
-    <ClCompile Include="sources\Exercice\Exercice1.cpp" />
+    <ClCompile Include="sources\DataStructure\DataStructure.cpp" />
     <ClCompile Include="sources\Tree\BST.cpp" />
     <ClCompile Include="sources\Tree\RBT.cpp" />
-    <ClCompile Include="sources\Tree\Exercice.cpp" />
+    <ClCompile Include="sources\Tree\Tree.cpp" />
     <ClCompile Include="sources\Utils\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sources\Tree\BST.hpp" />
     <ClInclude Include="sources\Tree\Node.hpp" />
     <ClInclude Include="sources\Tree\RBT.hpp" />
-    <ClInclude Include="sources\Tree\Exercice.hpp" />
+    <ClInclude Include="sources\Tree\Tree.hpp" />
     <ClInclude Include="sources\Utils\ListNode.hpp" />
-    <ClInclude Include="sources\Exercice\Exercice1.hpp" />
+    <ClInclude Include="sources\DataStructure\DataStructure.hpp" />
     <ClInclude Include="sources\Utils\Utils.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

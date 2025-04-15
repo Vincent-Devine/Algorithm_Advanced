@@ -3,14 +3,41 @@
 #include <stack>
 
 #include "OMLogger/Logger.hpp"
-#include "Exercice/Exercice1.hpp"
+#include "Utils/Utils.hpp"
+#include "DataStructure/DataStructure.hpp"
 
-namespace Exercice1
+namespace DataStructure
 {
-	// Algo 1 : Recherche de l’index d’un nombre dans un tableau
-	// 
-	// Avec un tableau de nombre entiers uniques triés dans l’ordre croissant
-	// Retournez l’indice du nombre recherché dans le tableau en faisant le moins d’itération possible.
+	void Exercice()
+	{
+		std::vector<int> dataVectorInt = std::vector<int>{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99 };
+		int resultInt = DataStructure::FindIndex(dataVectorInt, 43);
+		Utils::CheckResult("DataStructure: FindIndex", resultInt, 43);
+
+		dataVectorInt = std::vector<int>{ 0, 0, 1, 2, 2, 3 };
+		resultInt = DataStructure::RemoveDuplicates(dataVectorInt);
+		Utils::CheckResult("DataStructure: RemoveDuplicates", resultInt, 4);
+
+		dataVectorInt = std::vector<int>{ 2, 7, 11, 15 };
+		std::vector<int> resultVector = DataStructure::TwoSum(dataVectorInt, 9);
+		Utils::CheckResult("DataStructure: TwoSum", resultVector, { 0, 1 });
+
+		std::string dataString = "([]{})";
+		bool resultBool = DataStructure::IsValid(dataString);
+		Utils::CheckResult("DataStructure: IsValid", resultBool, true);
+
+		dataVectorInt = std::vector<int>{ 0, 1, 2 };
+		ListNode* dataListNode1 = Utils::GenerateList(dataVectorInt);
+		dataVectorInt = std::vector<int>{ 3, 4, 5 };
+		ListNode* dataListNode2 = Utils::GenerateList(dataVectorInt);
+		ListNode* resultListNode = DataStructure::MergeTwoLists(dataListNode1, dataListNode2);
+		dataVectorInt = std::vector<int>{ 0, 1, 2, 3, 4, 5 };
+		Utils::CheckResult("DataStructure: MergeTwoLists", resultListNode, Utils::GenerateList(dataVectorInt));
+
+		dataString = "abcabcbb";
+		resultInt = DataStructure::LengthOfLongestSubstring(dataString);
+		Utils::CheckResult("DataStructure: LengthOfLongestSubstring", 3, resultInt);
+	}
 
 	int FindIndex(std::vector<int>& nums, int value)
 	{
@@ -40,14 +67,6 @@ namespace Exercice1
 		LOG_INFO("Number of iteration: " + std::to_string(iteration));
 		return -1;
 	}
-
-	// Algo 2 : Retirer les doublons
-	// 
-	// Avec un tableau de nombre entiers triés dans l’ordre croissant.
-	// Supprimez les doublons pour avoir un tableau avec des entiers uniques et dans le même ordre. Renvoyez le nombre d’éléments uniques.
-	// Attention : Le nombre d'éléments uniques du tableau est k(valeur retournée).
-	// Modifiez le tableau de telle sorte que les k premiers éléments du tableau contiennent les éléments uniques dans l'ordre
-	// dans lequel ils étaient présents initialement dans le tableau.
 	
 	int RemoveDuplicates(std::vector<int>& tab)
 	{
@@ -64,11 +83,6 @@ namespace Exercice1
 		return j;
 	}
 
-	// Algo 3 : Somme de nombre(HashSet or Map)
-	// 
-	// Avec un tableau d’entier et un entier k, retournez les index des 2 nombres à additionner pour avoir le résultat k.
-	// Le tableau contient obligatoirement une et unique solution.Le même nombre ne peut pas être utilisé 2 fois.
-	
 	std::vector<int> TwoSum(std::vector<int>& nums, int target)
 	{
 		std::unordered_map<int, int> mapComplement;
@@ -86,12 +100,6 @@ namespace Exercice1
 		return { -1, -1 };
 	}
 
-	// Algo 4 : Vérification des parenthèses
-	// 
-	// Avec une chaîne de caractères contenant uniquement des(, ), { , }, [et].Déterminez si la chaîne de caractères est valide.Elle est valide si :
-	// Les parenthèses ouverte doivent être fermé avec le même type de parenthèse
-	// Les parenthèses doivent être fermé dans le bon ordre
-	// les parenthèses fermées doivent avoir le même type de parenthèse ouverte
 	bool IsValid(std::string s)
 	{
 		std::stack<char> element;
@@ -117,12 +125,6 @@ namespace Exercice1
 		return element.empty();
 	}
 
-	// Algo 5 : Fusionner 2 listes ordonnées
-	//
-	// Fusionner 2 listes ordonnées.
-	// La liste doit être faite en réunissant les nœuds des deux premières listes.
-	// Retournez le premier élément de la liste fusionnée.
-
 	ListNode* MergeTwoLists(ListNode* list1, ListNode* list2)
 	{
 		if (!list1)
@@ -144,9 +146,6 @@ namespace Exercice1
 		}
 	}
 
-	// Algo 6 : Recherche de la plus longue suite de caractères sans doublon
-	//
-	// A partir du chaîne de caractères s, trouvez la longueur de la plus longue sous - chaîne(substring) de caractère sans doublon
 	int LengthOfLongestSubstring(std::string s)
 	{
 		int length = 0;
