@@ -1,7 +1,9 @@
+#pragma once
+
 #include <string>
 #include <vector>
 
-#include "Utils/ListNode.hpp"
+#include "DataStructure/ListNode.hpp"
 
 namespace DataStructure
 {

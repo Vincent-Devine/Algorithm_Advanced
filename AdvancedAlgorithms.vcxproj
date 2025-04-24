@@ -134,16 +134,14 @@
     <ClCompile Include="sources\Tree\BST.cpp" />
     <ClCompile Include="sources\Tree\RBT.cpp" />
     <ClCompile Include="sources\Tree\Tree.cpp" />
-    <ClCompile Include="sources\Utils\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sources\Tree\BST.hpp" />
     <ClInclude Include="sources\Tree\Node.hpp" />
     <ClInclude Include="sources\Tree\RBT.hpp" />
     <ClInclude Include="sources\Tree\Tree.hpp" />
-    <ClInclude Include="sources\Utils\ListNode.hpp" />
+    <ClInclude Include="sources\DataStructure\ListNode.hpp" />
     <ClInclude Include="sources\DataStructure\DataStructure.hpp" />
-    <ClInclude Include="sources\Utils\Utils.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

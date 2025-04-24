@@ -2,41 +2,108 @@
 #include <unordered_set>
 #include <stack>
 
-#include "OMLogger/Logger.hpp"
-#include "Utils/Utils.hpp"
+#include <OMLogger/Logger.hpp>
+
 #include "DataStructure/DataStructure.hpp"
 
 namespace DataStructure
 {
+	bool MergeTwoListCheck(const ListNode* obtainedResult, const ListNode* expectedResult)
+	{
+		if (expectedResult->val != obtainedResult->val)
+			return false;
+
+		if (expectedResult->next)
+		{
+			if (obtainedResult->next)
+				return MergeTwoListCheck(expectedResult->next, obtainedResult->next);
+			else
+				return false;
+		}
+		else if (obtainedResult->next)
+			return false;
+
+		return true;
+	}
+
 	void Exercice()
 	{
-		std::vector<int> dataVectorInt = std::vector<int>{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99 };
-		int resultInt = DataStructure::FindIndex(dataVectorInt, 43);
-		Utils::CheckResult("DataStructure: FindIndex", resultInt, 43);
+		const int RESULT_FIND_INDEX = 43;
+		std::vector<int> list = std::vector<int>{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99 };
+		int resultInt = FindIndex(list, RESULT_FIND_INDEX);
+		if (resultInt == RESULT_FIND_INDEX)
+		{
+			OM_LOG_INFO("Find Index - Done");
+		}
+		else
+		{
+			OM_LOG_ERROR("Find Index - Failed");
+		}
 
-		dataVectorInt = std::vector<int>{ 0, 0, 1, 2, 2, 3 };
-		resultInt = DataStructure::RemoveDuplicates(dataVectorInt);
-		Utils::CheckResult("DataStructure: RemoveDuplicates", resultInt, 4);
+		const int RESULT_REMOVE_DUPLICATES = 4;
+		list = std::vector<int>{ 0, 0, 1, 2, 2, 3 };
+		resultInt = RemoveDuplicates(list);
+		if (resultInt == RESULT_REMOVE_DUPLICATES)
+		{
+			OM_LOG_INFO("Remove Duplicates - Done");
+		}
+		else
+		{
+			OM_LOG_ERROR("Remove Duplicates - Failed");
+		}
 
-		dataVectorInt = std::vector<int>{ 2, 7, 11, 15 };
-		std::vector<int> resultVector = DataStructure::TwoSum(dataVectorInt, 9);
-		Utils::CheckResult("DataStructure: TwoSum", resultVector, { 0, 1 });
+		const std::vector<int> RESULT_TWO_SUM = { 0, 1 };
+		list = std::vector<int>{ 2, 7, 11, 15 };
+		std::vector<int> resultVector = TwoSum(list, 9);
+		if (resultVector == RESULT_TWO_SUM)
+		{
+			OM_LOG_INFO("Two Sum - Done");
+		}
+		else
+		{
+			OM_LOG_ERROR("Two Sum - Failed");
+		}
 
+		const bool RESULT_IS_VALID = true;
 		std::string dataString = "([]{})";
 		bool resultBool = DataStructure::IsValid(dataString);
-		Utils::CheckResult("DataStructure: IsValid", resultBool, true);
+		if (resultBool == RESULT_IS_VALID)
+		{
+			OM_LOG_INFO("Is Valid - Done");
+		}
+		else
+		{
+			OM_LOG_ERROR("Is Valid - Failed");
+		}
+		
+		const ListNode* RESULT_MERGE_TWO_LIST = GenerateList(std::vector<int>{ 0, 1, 2, 3, 4, 5 });
+		list = std::vector<int>{ 0, 1, 2 };
+		ListNode* dataListNode1 = GenerateList(list);
+		
+		list = std::vector<int>{ 3, 4, 5 };
+		ListNode* dataListNode2 = GenerateList(list);
 
-		dataVectorInt = std::vector<int>{ 0, 1, 2 };
-		ListNode* dataListNode1 = Utils::GenerateList(dataVectorInt);
-		dataVectorInt = std::vector<int>{ 3, 4, 5 };
-		ListNode* dataListNode2 = Utils::GenerateList(dataVectorInt);
 		ListNode* resultListNode = DataStructure::MergeTwoLists(dataListNode1, dataListNode2);
-		dataVectorInt = std::vector<int>{ 0, 1, 2, 3, 4, 5 };
-		Utils::CheckResult("DataStructure: MergeTwoLists", resultListNode, Utils::GenerateList(dataVectorInt));
-
+		if (MergeTwoListCheck(resultListNode, RESULT_MERGE_TWO_LIST))
+		{
+			OM_LOG_INFO("Merge Two Lists - Done");
+		}
+		else
+		{
+			OM_LOG_ERROR("Merge Two Lists - Failed");
+		}
+		
+		const int RESULT_LENGTH_OF_LONGEST_SUBSTRING = 3;
 		dataString = "abcabcbb";
 		resultInt = DataStructure::LengthOfLongestSubstring(dataString);
-		Utils::CheckResult("DataStructure: LengthOfLongestSubstring", 3, resultInt);
+		if (resultInt == RESULT_LENGTH_OF_LONGEST_SUBSTRING)
+		{
+			OM_LOG_INFO("Length Of Longest Substring - Done");
+		}
+		else
+		{
+			OM_LOG_ERROR("Length Of Longest Substring - Failed");
+		}
 	}
 
 	int FindIndex(std::vector<int>& nums, int value)
@@ -52,7 +119,7 @@ namespace DataStructure
 
 			if (nums[middle] == value)
 			{
-				LOG_INFO("Number of iteration: " + std::to_string(iteration));
+				OM_LOG_DEBUG("Number of iteration: " + std::to_string(iteration));
 				return middle;
 			}
 
@@ -64,7 +131,7 @@ namespace DataStructure
 			middle = (begin + last) / 2;
 		}
 
-		LOG_INFO("Number of iteration: " + std::to_string(iteration));
+		OM_LOG_DEBUG("Number of iteration: " + std::to_string(iteration));
 		return -1;
 	}
 	

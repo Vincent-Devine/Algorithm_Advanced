@@ -15,7 +15,7 @@ void BST::InsertNode(int data)
 	if (!_root)
 	{
 		_root = newNode;
-		LOG_DEBUG("Insert root " + std::to_string(data));
+		OM_LOG_DEBUG("Insert root " + std::to_string(data));
 		return;
 	}
 
@@ -37,7 +37,7 @@ void BST::InsertNode(int data)
 	else
 		parent->_right = newNode;
 
-	LOG_DEBUG("Insert node " + std::to_string(data));
+	OM_LOG_DEBUG("Insert node " + std::to_string(data));
 } 
 
 void BST::SearchNode(int data)
@@ -46,11 +46,11 @@ void BST::SearchNode(int data)
 
 	if (result)
 	{
-		LOG_VALIDATION("Node " + std::to_string(data) + " found in tree");
+		OM_LOG_INFO("Node " + std::to_string(data) + " found in tree");
 	}
 	else
 	{
-		LOG_WARNING("Node " + std::to_string(data) + " not found in tree");
+		OM_LOG_WARNING("Node " + std::to_string(data) + " not found in tree");
 	}
 }
 
@@ -60,17 +60,17 @@ void BST::DeleteNode(int data)
 	if (node)
 	{
 		DeleteNode(node);
-		LOG_DEBUG("Delete node: " + std::to_string(data));
+		OM_LOG_DEBUG("Delete node: " + std::to_string(data));
 	}
 	else
 	{
-		LOG_WARNING("Node " + std::to_string(data) + " not found, can't delete");
+		OM_LOG_WARNING("Node " + std::to_string(data) + " not found, can't delete");
 	}
 }
 
 void BST::PrintInorder()
 {
-	LOG_DEBUG("-- Print Inorder --");
+	OM_LOG_DEBUG("-- Print Inorder --");
 	Inorder(_root);
 }
 
@@ -99,11 +99,11 @@ void BST::CheckIsBST()
 {
 	if (IsBST(_root))
 	{
-		LOG_VALIDATION("BST Tree is good");
+		OM_LOG_INFO("BST Tree is good");
 	}
 	else
 	{
-		LOG_WARNING("BST Tree is not a good BST");
+		OM_LOG_WARNING("BST Tree is not a good BST");
 	}
 }
 
@@ -119,7 +119,7 @@ void BST::PrintDLL(Node* root)
 	if (!root)
 		return;
 
-	LOG_DEBUG(std::to_string(root->_data));
+	OM_LOG_DEBUG(std::to_string(root->_data));
 	PrintDLL(root->_right);
 }
 
@@ -190,7 +190,7 @@ void BST::Inorder(Node* root)
 		return;
 
 	Inorder(root->_left);
-	LOG_DEBUG(std::to_string(root->_data));
+	OM_LOG_DEBUG(std::to_string(root->_data));
 	Inorder(root->_right);
 }
 

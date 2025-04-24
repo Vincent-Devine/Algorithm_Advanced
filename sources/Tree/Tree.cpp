@@ -87,6 +87,6 @@ void Tree::Exercice()
 	ExerciceRBT();
 	ExerciceBST();
 
-	LOG_INFO("Execution time BST (Binary Search Tree): " + std::to_string(elapsedBST.count()) + " seconds");
-	LOG_INFO("Execution time RBT (Red Black Tree): " + std::to_string(elapsedRBT.count()) + " seconds");
+	OM_LOG_INFO("Execution time BST (Binary Search Tree): " + std::to_string(elapsedBST.count()) + " seconds");
+	OM_LOG_INFO("Execution time RBT (Red Black Tree): " + std::to_string(elapsedRBT.count()) + " seconds");
 }

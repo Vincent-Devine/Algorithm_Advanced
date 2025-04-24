@@ -17,7 +17,7 @@ void RBT::InsertNode(int data)
 	{
 		_root = newNode;
 		_root->_color = Color::BLACK;
-		LOG_DEBUG("Insert root " + std::to_string(data));
+		OM_LOG_DEBUG("Insert root " + std::to_string(data));
 		return;
 	}
 
@@ -39,7 +39,7 @@ void RBT::InsertNode(int data)
 	else
 		parent->_right = newNode;
 
-	LOG_DEBUG("Insert node " + std::to_string(data));
+	OM_LOG_DEBUG("Insert node " + std::to_string(data));
 	FixInsert(newNode);
 }
 
@@ -49,11 +49,11 @@ void RBT::SearchNode(int data)
 	
 	if (result)
 	{
-		LOG_VALIDATION("Node " + std::to_string(data) + " found in tree.");
+		OM_LOG_INFO("Node " + std::to_string(data) + " found in tree.");
 	}
 	else
 	{
-		LOG_WARNING("Node " + std::to_string(data) + " not found in tree.");
+		OM_LOG_WARNING("Node " + std::to_string(data) + " not found in tree.");
 	}
 }
 
@@ -63,17 +63,17 @@ void RBT::DeleteNode(int data)
 	if(node)
 	{
 		DeleteNode(node);
-		LOG_DEBUG("Delete node: " + std::to_string(data));
+		OM_LOG_DEBUG("Delete node: " + std::to_string(data));
 	}
 	else
 	{
-		LOG_WARNING("Node " + std::to_string(data) + " not found, can't delete");
+		OM_LOG_WARNING("Node " + std::to_string(data) + " not found, can't delete");
 	}
 }
 
 void RBT::PrintInorder()
 {
-	LOG_DEBUG("-- Print Inorder --");
+	OM_LOG_DEBUG("-- Print Inorder --");
 	Inorder(_root);
 }
 
@@ -342,6 +342,6 @@ void RBT::Inorder(Node* root)
 		return;
 
 	Inorder(root->_left);
-	LOG_DEBUG(std::to_string(root->_data) + " - " + ColorToString(root->_color));
+	OM_LOG_DEBUG(std::to_string(root->_data) + " - " + ColorToString(root->_color));
 	Inorder(root->_right);
 }
