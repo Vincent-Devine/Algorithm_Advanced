@@ -30,6 +30,9 @@
     <ClCompile Include="sources\Tree\Tree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="sources\Algo\Algo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sources\DataStructure\DataStructure.hpp">
@@ -48,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sources\Tree\Node.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sources\Algo\Algo.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
