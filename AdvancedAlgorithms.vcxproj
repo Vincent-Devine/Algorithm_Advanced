@@ -132,12 +132,16 @@
     <ClCompile Include="sources\AdvancedAlgorithms.cpp" />
     <ClCompile Include="sources\Algo\Algo.cpp" />
     <ClCompile Include="sources\DataStructure\DataStructure.cpp" />
+    <ClCompile Include="sources\Pathfinding\BellmanFord.cpp" />
+    <ClCompile Include="sources\Pathfinding\Pathfinding.cpp" />
     <ClCompile Include="sources\Tree\BST.cpp" />
     <ClCompile Include="sources\Tree\RBT.cpp" />
     <ClCompile Include="sources\Tree\Tree.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sources\Algo\Algo.hpp" />
+    <ClInclude Include="sources\Pathfinding\BellmanFord.hpp" />
+    <ClInclude Include="sources\Pathfinding\Pathfinding.hpp" />
     <ClInclude Include="sources\Tree\BST.hpp" />
     <ClInclude Include="sources\Tree\Node.hpp" />
     <ClInclude Include="sources\Tree\RBT.hpp" />

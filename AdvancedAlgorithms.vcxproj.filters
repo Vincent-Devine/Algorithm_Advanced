@@ -33,6 +33,12 @@
     <ClCompile Include="sources\Algo\Algo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="sources\Pathfinding\Pathfinding.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Pathfinding\BellmanFord.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sources\DataStructure\DataStructure.hpp">
@@ -54,6 +60,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sources\Algo\Algo.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sources\Pathfinding\Pathfinding.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sources\Pathfinding\BellmanFord.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
