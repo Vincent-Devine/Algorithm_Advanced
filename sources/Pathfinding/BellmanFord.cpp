@@ -1,8 +1,9 @@
 #include "Pathfinding/BellmanFord.hpp"
+#include <OMLogger/Logger.hpp>
 
 using namespace Pathfinding;
 
-std::vector<int> Pathfinding::BellmanFordIterative(int nbEdges, std::vector<Edge> edges, int source, int target)
+int Pathfinding::BellmanFordIterative(int nbEdges, std::vector<Edge> edges, int source, int target)
 {
 	std::vector<int> distances(nbEdges, INT_MAX);
 	distances[source] = 0;
@@ -18,7 +19,16 @@ std::vector<int> Pathfinding::BellmanFordIterative(int nbEdges, std::vector<Edge
 		}
 	}
 
-	return distances;
+	for (const Edge& edge : edges)
+	{
+		if (distances[edge.source] != INT_MAX && distances[edge.source] + edge.weight < distances[edge.destination])
+		{
+			OM_LOG_WARNING("negatif cycle detected!");
+			return -1;
+		}
+	}
+
+	return distances[target] == INT_MAX ? -1 : distances[target];
 }
 
 void BellmanFordRecursiveHelper(std::vector<int>& distances, const std::vector<Edge>& edges, int iteration, int maxIteration)
@@ -40,10 +50,10 @@ void BellmanFordRecursiveHelper(std::vector<int>& distances, const std::vector<E
 	BellmanFordRecursiveHelper(distances, edges, iteration + 1, maxIteration);
 }
 
-std::vector<int> Pathfinding::BellmanFordRecursive(int nbEdges, std::vector<Edge> edges, int source, int target)
+int Pathfinding::BellmanFordRecursive(int nbEdges, std::vector<Edge> edges, int source, int target)
 {
 	std::vector<int> distances(nbEdges, INT_MAX);
 	distances[source] = 0;
 	BellmanFordRecursiveHelper(distances, edges, 0, nbEdges - 1);
-	return distances;
+	return distances[target];
 }

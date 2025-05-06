@@ -18,6 +18,6 @@ namespace Pathfinding
 		}
 	};
 
-	std::vector<int> BellmanFordIterative(int nbEdges, std::vector<Edge> edges, int source, int target);
-	std::vector<int> BellmanFordRecursive(int nbEdges, std::vector<Edge> edges, int source, int target);
+	int BellmanFordIterative(int nbEdges, std::vector<Edge> edges, int source, int target);
+	int BellmanFordRecursive(int nbEdges, std::vector<Edge> edges, int source, int target);
 }

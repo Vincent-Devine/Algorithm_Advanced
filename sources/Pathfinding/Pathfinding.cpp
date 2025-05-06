@@ -26,21 +26,20 @@ void Pathfinding::Exercice()
 
 	auto start = std::chrono::high_resolution_clock::now();
 
-	std::vector<int> distancesIterative = BellmanFordIterative(edges.size(), edges, source, target);
+	int distancesIterative = BellmanFordIterative(edges.size(), edges, source, target);
 
 	auto end = std::chrono::high_resolution_clock::now();
 	double durationIterative = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
 
 	start = std::chrono::high_resolution_clock::now();
 
-	std::vector<int> distancesRecursive = BellmanFordRecursive(edges.size(), edges, source, target);
+	int distancesRecursive = BellmanFordRecursive(edges.size(), edges, source, target);
 
 	end = std::chrono::high_resolution_clock::now();
 	double durationRecursive = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
 
-
-	OM_LOG_INFO("Iteration: Distance from " + std::to_string(source) + " to " + std::to_string(target) + " = " + std::to_string(distancesIterative[target]));
-	OM_LOG_INFO("Recursive: Distance from " + std::to_string(source) + " to " + std::to_string(target) + " = " + std::to_string(distancesRecursive[target]));
+	OM_LOG_INFO("Iteration: Distance from " + std::to_string(source) + " to " + std::to_string(target) + " = " + std::to_string(distancesIterative));
+	OM_LOG_INFO("Recursive: Distance from " + std::to_string(source) + " to " + std::to_string(target) + " = " + std::to_string(distancesRecursive));
 
 	OM_LOG_INFO("Iteration: time =  " + std::to_string(durationIterative) + " ms");
 	OM_LOG_INFO("Recursive: time =  " + std::to_string(durationRecursive) + " ms");
