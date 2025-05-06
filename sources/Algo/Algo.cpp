@@ -62,62 +62,26 @@ std::string LongestCommonPrefix(std::vector<std::string>& strs)
 
 bool IsValidSudoku(std::vector<std::vector<char>>& board)
 {
-	// Check row
-	for (int i = 0; i < board.size(); ++i)
+	std::unordered_set<int> rows[9];
+	std::unordered_set<int> cols[9];
+	std::unordered_set<int> boxes[9];
+
+	for (int r = 0; r < 9; ++r)
 	{
-		std::unordered_set<char> seen;
-		for (int j = 0; j < board[i].size(); ++j)
+		for (int c = 0; c < 9; ++c)
 		{
-			char current = board[i][j];
-			if (current != '.')
-			{
-				if (seen.count(current))
-					return false;
+			if (board[r][c] == '.')
+				continue;
 
-				seen.insert(current);
-			}
+			char value = board[r][c];
+			int boxeIndex = (r / 3) * 3 + (c / 3);
 
-		}
-	}
+			if (rows[r].count(value) || cols[c].count(value) || boxes[boxeIndex].count(value))
+				return false;
 
-	// Check columns
-	for (int j = 0; j < board.size(); ++j)
-	{
-		std::unordered_set<char> seen;
-		for (int i = 0; i < board[j].size(); ++i)
-		{
-			char current = board[i][j];
-			if (current != '.')
-			{
-				if (seen.count(current))
-					return false;
-
-				seen.insert(current);
-			}
-
-		}
-	}
-
-	// Check 3x3 sub-boxes
-	for (int blockRow = 0; blockRow < 3; ++blockRow)
-	{
-		for (int blockColumn = 0; blockColumn < 3; ++blockColumn)
-		{
-			std::unordered_set<char> seen;
-			for (int i = 0; i < 3; ++i)
-			{
-				for (int j = 0; j < 3; ++j)
-				{
-					char current = board[blockRow * 3 + i][blockColumn * 3 + j];
-					if (current != '.')
-					{
-						if (seen.count(current))
-							return false;
-
-						seen.insert(current);
-					}
-				}
-			}
+			rows[r].insert(value);
+			cols[c].insert(value);
+			boxes[boxeIndex].insert(value);
 		}
 	}
 
